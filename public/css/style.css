@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --sub-background: #F3F2F1;
+    --sub-color-text: #595959;
+}
+
+.container-info-more {
+    background-color: var(--sub-background);
+    padding: 3px 7px;
+    border-radius: 5px;
+}
+
+.container-info-more span {
+    color: var(--sub-color-text);
+
+}
+
+.btn-voir-offre {
+    padding: 7px 15px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
