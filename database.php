@@ -7,7 +7,6 @@ function databaseConnect()
     $password = "";    
     $port = "3306";
     $dbname = "projet-cesi";
-    // $dbname = "qrfim";
 
     try {
         $pdo = new PDO("mysql:host=" . $server . ";port=" . $port . ";dbname=" . $dbname, $login, $password);
@@ -19,7 +18,7 @@ function databaseConnect()
         return $pdo;
     } catch (\Throwable $th) {
         //throw $th;
-        addLog("error", $th->getCode() . " : " . $th->getMessage());
+        // addLog("error", $th->getCode() . " : " . $th->getMessage());
     }
   
 }
@@ -32,7 +31,6 @@ function databaseRead($req, $data = [], $isUnique = false)
 
     $stmt->execute($data);
 
-    // $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if ($isUnique) {
         $row = $stmt->fetch();
     } else {
@@ -52,7 +50,6 @@ function databaseWrite($req, $data)
         $stmt->execute($data);
     } catch (\Throwable $th) {
         addFlash("danger", "Code erreur : " . $th->getCode() . " " . $th->getMessage());
-        addLog("error", $th->getMessage());
     }
     
     databaseConnectionClose($pdo);

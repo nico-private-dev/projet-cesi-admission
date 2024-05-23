@@ -13,7 +13,8 @@ class AnnonceController
 
     public function addJobOffer()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'], $_POST['start_date'], $_POST['location'], $_POST['salary'], $_POST['type'], $_POST['appearance'], $_POST['link'], $_POST['short_description'], $_POST['long_description'])) {
+
             $data = [
                 'title' => $_POST['title'],
                 'start_date' => $_POST['start_date'],
@@ -23,13 +24,25 @@ class AnnonceController
                 'appearance' => $_POST['appearance'],
                 'link' => $_POST['link'],
                 'short_description' => $_POST['short_description'],
-                'long_description' => $_POST['long_description']
+                'long_description' => $_POST['long_description'],
             ];
 
             $query = "INSERT INTO card (title, start_date, location, salary, type, appearance, link, short_description, long_description) 
                       VALUES (:title, :start_date, :location, :salary, :type, :appearance, :link, :short_description, :long_description)";
 
             databaseWrite($query, $data);
+            header('Location: index.php?page=admin');
+            exit;
         }
+    }
+
+    public function deleteJobOffer($id)
+    {
+        $query = "DELETE FROM card WHERE id = :id";
+
+        databaseWrite($query, ['id' => $id]);
+
+        header('Location: index.php?page=admin');
+        exit;
     }
 }

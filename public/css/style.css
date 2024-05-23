@@ -6,6 +6,11 @@ body, html {
 :root {
     --sub-background: #F3F2F1;
     --sub-color-text: #595959;
+    --color-warning: #C03435;
+}
+
+.card {
+    position: relative;
 }
 
 .container-info-more {
@@ -30,4 +35,23 @@ body, html {
     position: fixed;
     bottom: 70px;
     right: 70px;
+}
+
+/* btn supprimer une offre */
+.btn-delete-offers {
+    background-color: var(--color-warning);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+}
+
+.icon-xmark-close {
+    width: 20px;
+    fill: white;
 }

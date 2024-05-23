@@ -14,6 +14,12 @@ if (isset($_GET['page'])) {
 
 $annonceController = new AnnonceController();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['action']) && $_POST['action'] === 'delete') {
+        $annonceController->deleteJobOffer($_POST['id']);
+    } 
+}
+
 switch ($page) {
     case 'home':
         $jobOffers = $annonceController->getJobOffers();
@@ -28,7 +34,7 @@ switch ($page) {
             exit();
         }
         require_once "./view/BO/bo_admin.php";
-        require_once "./view/_parts/annonce.php";
+        require_once "./view/_parts/bo_annonce.php";
         break;
 
     default:
