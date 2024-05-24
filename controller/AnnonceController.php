@@ -33,14 +33,6 @@ class AnnonceController
         }
     }
 
-    public function deleteJobOffer($id)
-    {
-        $query = "DELETE FROM card WHERE id = :id";
-        databaseWrite($query, ['id' => $id]);
-        header('Location: index.php?page=admin');
-        exit;
-    }
-
     public function editJobOffer()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['title'], $_POST['start_date'], $_POST['location'], $_POST['salary'], $_POST['type'], $_POST['appearance'], $_POST['link'], $_POST['short_description'], $_POST['long_description'])) {
@@ -63,6 +55,14 @@ class AnnonceController
             header('Location: index.php?page=admin');
             exit;
         }
+    }
+
+    public function deleteJobOffer($id)
+    {
+        $query = "DELETE FROM card WHERE id = :id";
+        databaseWrite($query, ['id' => $id]);
+        header('Location: index.php?page=admin');
+        exit;
     }
 
     public function getJobOfferById($id)

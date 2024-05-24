@@ -10,13 +10,14 @@
             </div>
             <div class="modal-body">
                 <form method="post" class="">
+                    <input type="hidden" name="action" value="add">
                     <div class="mb-3">
                         <label for="title" class="form-label">Intitulé de l'offre</label>
                         <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="d-flex justify-content-between gap-2">
                         <div class="mb-3 w-50">
-                            <label for="start_date" class="form-label">date de prise de poste</label>
+                            <label for="start_date" class="form-label">Date de prise de poste</label>
                             <input type="date" class="form-control" name="start_date" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3 w-50">
@@ -62,48 +63,10 @@
                         <label for="long_description" class="form-label">Description plus détaillée</label>
                         <textarea class="form-control" name="long_description" aria-label="With textarea" rows="8"></textarea>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary">Ajouter l'offre</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<div class="container col-10 mt-5">
-    <h2>Modifier une offre d'emploi</h2>
-    <form id="editJobOfferForm" method="post" action="index.php?page=admin">
-        <input type="hidden" name="action" value="edit">
-        <label for="selectJobOffer">Sélectionner une offre d'emploi à modifier:</label>
-        <select id="selectJobOffer" name="id">
-            <option value="">--Sélectionner une offre d'emploi--</option>
-            <?php foreach ($jobOffers as $job) : ?>
-                <option value="<?php echo htmlspecialchars($job['id']); ?>">
-                    <?php echo htmlspecialchars($job['title']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <div id="jobOfferFields" style="display:none;">
-            <label for="title">Titre:</label>
-            <input type="text" id="title" name="title"><br>
-            <label for="start_date">Date de début:</label>
-            <input type="date" id="start_date" name="start_date"><br>
-            <label for="location">Lieu:</label>
-            <input type="text" id="location" name="location"><br>
-            <label for="salary">Salaire:</label>
-            <input type="text" id="salary" name="salary"><br>
-            <label for="type">Type:</label>
-            <input type="text" id="type" name="type"><br>
-            <label for="appearance">Apparence:</label>
-            <input type="text" id="appearance" name="appearance"><br>
-            <label for="link">Lien:</label>
-            <input type="text" id="link" name="link"><br>
-            <label for="short_description">Description courte:</label>
-            <textarea id="short_description" name="short_description"></textarea><br>
-            <label for="long_description">Description longue:</label>
-            <textarea id="long_description" name="long_description"></textarea><br>
-            <button type="submit">Modifier</button>
-        </div>
-    </form>
-</div>
-

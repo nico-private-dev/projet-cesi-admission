@@ -55,3 +55,7 @@ body, html {
     width: 20px;
     fill: white;
 }
+
+.champ-form-size {
+    width: 32%;
+}
