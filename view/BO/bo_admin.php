@@ -9,6 +9,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                
+                <!-- formulaire d'ajout d'offres -->
                 <form method="post" class="">
                     <input type="hidden" name="action" value="add">
                     <div class="mb-3">

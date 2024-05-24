@@ -2,6 +2,7 @@
 
 class SearchController
 {
+    // recherche d'offre via mots clés
     public function searchJobOffers($keywords)
     {
         // Séparation des mots-clés par la virgule et nettoyage
@@ -9,7 +10,6 @@ class SearchController
         $keywords = array_map('trim', $keywords);
         $keywords = array_map('htmlspecialchars', $keywords);
 
-        // Création de la requête SQL dynamique
         $query = "SELECT * FROM card WHERE ";
         $conditions = [];
         $params = [];

@@ -1,5 +1,6 @@
 <?php
 
+// connection à la BDD
 function databaseConnect()
 {
     $server = "localhost";
@@ -17,12 +18,13 @@ function databaseConnect()
     
         return $pdo;
     } catch (\Throwable $th) {
-        //throw $th;
-        // addLog("error", $th->getCode() . " : " . $th->getMessage());
+        throw $th;
+        echo 'erreur de connection à la BDD';
     }
   
 }
 
+// Lecture de la BDD
 function databaseRead($req, $data = [], $isUnique = false)
 {
     $pdo = databaseConnect();
@@ -40,6 +42,7 @@ function databaseRead($req, $data = [], $isUnique = false)
     return $row;
 }
 
+// écriture dans la BDD
 function databaseWrite($req, $data)
 {
 
@@ -49,12 +52,13 @@ function databaseWrite($req, $data)
     
         $stmt->execute($data);
     } catch (\Throwable $th) {
-        addFlash("danger", "Code erreur : " . $th->getCode() . " " . $th->getMessage());
+        echo 'une erreur est survenu lors de l\'écriture dans la BDD';
     }
     
     databaseConnectionClose($pdo);
 }
 
+// fermeture de la BDD
 function databaseConnectionClose($pdo)
 {
 

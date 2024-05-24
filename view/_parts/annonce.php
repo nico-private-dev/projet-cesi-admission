@@ -1,3 +1,5 @@
+
+<!-- Card offre vue Utilisateur -->
 <div class="container col-10 mt-5">
     <div class="row justify-content-start gap-5">
         <?php if (!empty($jobOffers)) : ?>

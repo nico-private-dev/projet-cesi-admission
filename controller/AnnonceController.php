@@ -2,6 +2,7 @@
 
 class AnnonceController
 {
+    // Lire une offre dans la BDD
     public function getJobOffers()
     {
         $query = "SELECT * FROM card";
@@ -9,6 +10,7 @@ class AnnonceController
         return $jobOffers;
     }
 
+    // ajouter une offre dans la BDD
     public function addJobOffer()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'], $_POST['start_date'], $_POST['location'], $_POST['salary'], $_POST['type'], $_POST['appearance'], $_POST['link'], $_POST['short_description'], $_POST['long_description'])) {
@@ -33,6 +35,7 @@ class AnnonceController
         }
     }
 
+    // modifier une offre de la BDD
     public function editJobOffer()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['title'], $_POST['start_date'], $_POST['location'], $_POST['salary'], $_POST['type'], $_POST['appearance'], $_POST['link'], $_POST['short_description'], $_POST['long_description'])) {
@@ -57,6 +60,7 @@ class AnnonceController
         }
     }
 
+    // supprimer un offre de la BDD
     public function deleteJobOffer($id)
     {
         $query = "DELETE FROM card WHERE id = :id";
@@ -65,6 +69,7 @@ class AnnonceController
         exit;
     }
 
+    // Pointer une offre par son id
     public function getJobOfferById($id)
     {
         $query = "SELECT * FROM card WHERE id = :id";

@@ -10,6 +10,8 @@
 <div class="container col-6">
     <div class="row">
         <h2 class="text-center mb-4">Faites une recherches de votre poste souhaité</h2>
+
+        <!-- barre de recherche -->
         <form class="d-flex" method="POST">
             <input class="form-control me-sm-2" type="search" name="search" placeholder="CDI, développeur, alternance...">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>

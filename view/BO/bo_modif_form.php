@@ -1,5 +1,7 @@
 <div class="container col-10 mt-5">
     <h2>Modifier une offre d'emploi</h2>
+
+    <!-- formulaire de modification d'offres -->
     <form id="editJobOfferForm" method="post" action="index.php?page=admin">
         <input type="hidden" name="action" value="edit">
         <div class="d-flex align-items-center gap-3">
