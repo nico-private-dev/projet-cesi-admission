@@ -57,7 +57,7 @@ switch ($page) {
         break;
 
     default:
-        // code par défaut
+        // Erreur 404
         break;
 }
 
