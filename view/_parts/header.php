@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche d'emploi</title>
-    <link rel="stylesheet" type="text/css" href="/projet-cesi-admission/public/css/style.css">
-    <link rel="stylesheet" href="/projet-cesi-admission/public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
 </head>
 
 <body>
