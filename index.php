@@ -15,9 +15,19 @@ if (isset($_GET['page'])) {
 $annonceController = new AnnonceController();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['action']) && $_POST['action'] === 'delete') {
-        $annonceController->deleteJobOffer($_POST['id']);
-    } 
+    if (isset($_POST['action'])) {
+        switch ($_POST['action']) {
+            case 'add':
+                $annonceController->addJobOffer();
+                break;
+            case 'edit':
+                $annonceController->editJobOffer();
+                break;
+            case 'delete':
+                $annonceController->deleteJobOffer($_POST['id']);
+                break;
+        }
+    }
 }
 
 switch ($page) {
@@ -29,18 +39,18 @@ switch ($page) {
 
     case 'admin':
         $jobOffers = $annonceController->getJobOffers();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $annonceController->addJobOffer();
-            exit();
+        if (isset($_GET['edit'])) {
+            $jobOffer = $annonceController->getJobOfferById($_GET['edit']);
+            require_once "./view/BO/bo_edit.php";
+        } else {
+            require_once "./view/BO/bo_admin.php";
+            require_once "./view/_parts/bo_annonce.php";
         }
-        require_once "./view/BO/bo_admin.php";
-        require_once "./view/_parts/bo_annonce.php";
         break;
 
     default:
-        # code...
+        // code par défaut
         break;
 }
-
 
 require_once './view/_parts/footer.php';
